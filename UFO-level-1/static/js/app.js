@@ -21,3 +21,14 @@ makeTable(tableData);
 
 // Getting a reference to the button on the page with the id property set to `filter-btn`
 var button = d3.select("#filter-btn");
+button.on("click", function() {
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    d3.select("tbody").selectAll("tr").remove();
+    var filteredData = data.filter(data => data.datetime === inputValue);
+    
+    console.log(filteredData);
+    makeTable(filteredData);
+});
