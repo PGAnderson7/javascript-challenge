@@ -26,9 +26,11 @@ button.on("click", function() {
     var inputElement = d3.select("#datetime");
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
-    d3.select("tbody").selectAll("tr").remove();
+    d3.select("tbody").selectAll("tr");
     var filteredData = data.filter(data => data.datetime === inputValue);
     
     console.log(filteredData);
     makeTable(filteredData);
 });
+
+// line 29  .remove()
